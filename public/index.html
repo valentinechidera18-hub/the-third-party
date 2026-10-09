@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Third Party — Interactive Storybook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-ornament"></div>
+
+  <header class="header">
+    <div class="logo">
+      <span class="logo-mark">◆</span>
+      <h1>The Third Party</h1>
+    </div>
+    <p class="tagline">An illustrated tale that unfolds with you</p>
+  </header>
+
+  <main class="container">
+    <!-- SETUP SCREEN -->
+    <section id="setup" class="panel setup-panel">
+      <h2>Begin Your Story</h2>
+      <p class="subtitle">Describe a character and a setting. We will open the first page for you — with illustration and a short animated clip.</p>
+
+      <div class="form-group">
+        <label for="character">Character</label>
+        <input type="text" id="character" placeholder="e.g. a silver-haired fox spirit in a crimson coat" maxlength="200" />
+      </div>
+
+      <div class="form-group">
+        <label for="setting">Setting</label>
+        <input type="text" id="setting" placeholder="e.g. a floating library above storm clouds" maxlength="200" />
+      </div>
+
+      <div class="starters">
+        <p class="starters-label">Or try a starter idea</p>
+        <div class="starter-chips" id="starter-chips"></div>
+      </div>
+
+      <button id="btn-start" class="btn primary" disabled>
+        <span class="btn-text">Open the Book</span>
+        <span class="btn-spinner hidden"></span>
+      </button>
+    </section>
+
+    <!-- STORY SCREEN -->
+    <section id="story" class="panel story-panel hidden">
+      <div class="story-toolbar">
+        <button id="btn-restart" class="btn ghost" title="Start over">↺ Restart</button>
+        <div class="story-meta">
+          <span id="meta-character"></span>
+          <span class="dot">·</span>
+          <span id="meta-setting"></span>
+        </div>
+      </div>
+
+      <article class="scene-card">
+        <div class="illustration-wrap">
+          <div id="illustration-placeholder" class="illustration-placeholder">
+            <div class="shimmer"></div>
+            <span>Illustrating the scene…</span>
+          </div>
+          <img id="illustration" class="illustration hidden" alt="Scene illustration" />
+          <video id="scene-video" class="scene-video hidden" playsinline muted loop autoplay></video>
+          <div id="video-badge" class="video-badge hidden">
+            <span class="video-badge-dot"></span>
+            <span id="video-badge-text">Animating…</span>
+          </div>
+        </div>
+
+        <div class="prose-wrap">
+          <div id="scene-text" class="scene-text"></div>
+          <div id="loading-text" class="loading-text hidden">
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+            <span>The story continues…</span>
+          </div>
+        </div>
+      </article>
+
+      <div id="choices-section" class="choices-section">
+        <h3>What do you do?</h3>
+        <div id="choices" class="choices"></div>
+
+        <div class="custom-action">
+          <input type="text" id="custom-input" placeholder="Or type your own idea…" maxlength="300" />
+          <button id="btn-custom" class="btn secondary" disabled>Go</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <footer class="footer">
+    <p>Powered by OpenAI Responses API · Scenes illustrated with GPT Image · Clips via Luma / Replicate / Runway</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
