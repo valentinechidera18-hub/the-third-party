@@ -1,0 +1,15 @@
+{
+  "name": "the-third-party",
+  "version": "1.0.0",
+  "description": "An illustrated interactive storybook powered by the OpenAI Responses API",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "keywords": ["storybook", "openai", "interactive", "ai", "responses-api"],
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}
